@@ -1,6 +1,5 @@
 # Internet Speed Tester
-
-A simple web-based application that tests the user's internet download speed and displays the result on a gauge chart. The application uses Google Charts for visualization and fetches a sample file to calculate the download speed.
+Internet Speed Tester is a web-based application that measures and displays the user's internet download speed in real-time. Using Google Charts, it visualizes the speed on a gauge chart, providing an easy-to-read result in Mbps. The test is conducted by downloading a sample file and calculating the speed based on the download time.
 
 ## Features
 
