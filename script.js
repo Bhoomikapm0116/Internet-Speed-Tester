@@ -1,13 +1,13 @@
 const testButton = document.getElementById("testButton");
-const downloadSpeedLabel = document.getElementById("downloadSpeed"); // Reference the correct element
+const downloadSpeedLabel = document.getElementById("downloadSpeed"); 
 testButton.addEventListener("click", startTest);
 
 google.charts.load("current", { packages: ["corechart", "gauge"] });
 google.charts.setOnLoadCallback(drawChart);
 
 function startTest() {
-  downloadSpeedLabel.textContent = ""; // Clear the previous speed value
-  downloadFile("https://getsamplefiles.com/download/mp4/sample-1.mp4"); // Replace with a valid URL
+  downloadSpeedLabel.textContent = ""; 
+  downloadFile("https://getsamplefiles.com/download/mp4/sample-1.mp4"); 
 }
 
 function drawChart(speed = 0) {
@@ -23,6 +23,7 @@ function drawChart(speed = 0) {
     height: 300,
     minorTicks: 5,
     majorTicks: ["0", "20", "40", "60", "80", "100"],
+    needleColor: '#00FF00',  
   };
 
   let chart = new google.visualization.Gauge(document.getElementById("chart_div"));
@@ -41,17 +42,17 @@ async function downloadFile(url) {
     receivedLength += value.length;
     let currentTime = new Date();
     let timeElapsed = (currentTime - startTime) / 1000;
-    let speed = (8 / 1000000) * (receivedLength / timeElapsed); // Speed in Mbps
+    let speed = (8 / 1000000) * (receivedLength / timeElapsed);
     drawChart(speed);
 
-    if (done || timeElapsed > 15) { // Test for 15 seconds
+    if (done || timeElapsed > 15) { 
       break;
     }
   }
 
   let currentTime = new Date();
   let timeElapsed = (currentTime - startTime) / 1000;
-  let averageSpeed = (8 / 1000000) * (receivedLength / timeElapsed); // Speed in Mbps
+  let averageSpeed = (8 / 1000000) * (receivedLength / timeElapsed); 
   drawChart(averageSpeed);
 
   averageSpeed = averageSpeed.toFixed(2);
